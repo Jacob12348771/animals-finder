@@ -1,6 +1,6 @@
 # Animals-Finder
 
-.NET Maui app that finds shows different animals and their locations around the globe.
+.NET MAUI app that finds shows different animals and their locations around the globe.
 
 Looking to build on the tutorial and develop new features for the app.
 
