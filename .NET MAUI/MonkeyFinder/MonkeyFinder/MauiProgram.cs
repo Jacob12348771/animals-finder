@@ -15,14 +15,20 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 			});
 
-		// Dependancy service knows to add page and all of its dependencies.
+        // Dependancy service knows to add page and all of its dependencies.
+        builder.Services.AddSingleton<IConnectivity>(Connectivity.Current);
+        builder.Services.AddSingleton<IGeolocation>(Geolocation.Default);
+        builder.Services.AddSingleton<IMap>(Map.Default);
 
-		builder.Services.AddSingleton<MonkeyService>();
+        builder.Services.AddSingleton<MonkeyService>();
 
         builder.Services.AddSingleton<MonkeysViewModel>();
+		builder.Services.AddTransient<MonkeyDetailsViewModel>();
         
         builder.Services.AddSingleton<MainPage>();
 
-		return builder.Build();
+        builder.Services.AddTransient<DetailsPage>();
+
+        return builder.Build();
 	}
 }
